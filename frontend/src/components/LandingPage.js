@@ -7,7 +7,7 @@ import ContactSection from "./ContactSection";
 import AutoScrollSection from "./AutoScrollSection";
 import CctvServices from "./CctvServices";
 import TimelineSection from "./TimelineSection";
-
+import GallerySection from "./GallerySection";
 const LandingPage = () => {
   return (
     <>
@@ -164,6 +164,8 @@ const LandingPage = () => {
       >
         <ContactSection />
       </motion.section>
+
+      <GallerySection />
     </>
   );
 };
