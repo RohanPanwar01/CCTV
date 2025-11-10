@@ -1,28 +1,72 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import Logo from "../image/logo.jpg";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Smooth scroll handler
   const handleScrollTo = (id) => {
     const section = document.getElementById(id);
     if (section) section.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Unified link handler (same as Header)
+  const handleNavClick = (link) => {
+    if (link.label === "Home") {
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => handleScrollTo("hero"), 300);
+      } else {
+        handleScrollTo("hero");
+      }
+      return;
+    }
+
+    if (link.type === "scroll") {
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => handleScrollTo(link.id), 400);
+      } else {
+        handleScrollTo(link.id);
+      }
+    } else if (link.type === "route") {
+      navigate(link.path);
+    }
+  };
+
+  const navLinks = [
+    { label: "Home", id: "/", type: "scroll" },
+    { label: "Services", id: "services", type: "scroll" },
+    { label: "About", path: "/about", type: "route" },
+    { label: "Process", id: "timeline", type: "scroll" },
+    { label: "Gallery", id: "gallery", type: "scroll" },
+    { label: "Contact", id: "contact", type: "scroll" },
+  ];
+
   return (
     <footer className="bg-gradient-to-b from-[#0a0f1a] to-black text-gray-300 py-16 border-t border-blue-500/10">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-        
+
         {/* ===== Brand Section ===== */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-extrabold font-serif bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent mb-4">
-            Alex CCTV
-          </h2>
+          <NavLink to="/">
+            <img
+              src={Logo}
+              alt="AV CCTV Logo"
+              className="w-10 h-10 sm:w-12 sm:h-12 object-contain mb-3"
+            />
+          </NavLink>
+
           <p className="text-gray-400 text-sm leading-relaxed">
-            Providing trusted CCTV and surveillance installation for homes, offices, and businesses across Bhopal. 
+            Providing trusted CCTV and surveillance installation for homes, offices, and businesses across Indore. 
             Secure your world with advanced AI-powered monitoring.
           </p>
         </motion.div>
@@ -35,17 +79,10 @@ const Footer = () => {
         >
           <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
           <ul className="space-y-3">
-            {[
-              { label: "Home", id: "hero" },
-              { label: "Services", id: "services" },
-              { label: "About", id: "about" },
-              { label: "Process", id: "timeline" },
-              { label: "Gallery", id: "gallery" },
-              { label: "Contact", id: "contact" },
-            ].map((link, i) => (
+            {navLinks.map((link, i) => (
               <li
                 key={i}
-                onClick={() => handleScrollTo(link.id)}
+                onClick={() => handleNavClick(link)}
                 className="hover:text-blue-400 cursor-pointer transition"
               >
                 {link.label}
@@ -62,15 +99,17 @@ const Footer = () => {
         >
           <h3 className="text-lg font-semibold text-white mb-4">Contact</h3>
           <ul className="space-y-3 text-sm">
+            <a href="tel:+916266244907" className="hover:text-blue-400 transition">
             <li className="flex items-center gap-2">
-              <Phone size={18} className="text-blue-400" /> +91 98765 43210
+              <Phone size={18} className="text-blue-400" /> +91 6266244907
             </li>
+            </a>
             <li className="flex items-center gap-2">
               <Mail size={18} className="text-blue-400" /> alexcctvsolutions@gmail.com
             </li>
             <li className="flex items-start gap-2">
               <MapPin size={18} className="text-blue-400 mt-1" /> 
-              <span>Bhopal, Madhya Pradesh, India</span>
+              <span>Indore, Madhya Pradesh, India</span>
             </li>
           </ul>
         </motion.div>
@@ -91,7 +130,7 @@ const Footer = () => {
               <Facebook size={22} />
             </motion.a>
             <motion.a
-              href="#"
+              href="https://www.instagram.com/av_cctv_indore?igsh=MXNweHh0MjJqdzZ4aw=="
               whileHover={{ scale: 1.2 }}
               className="p-2 bg-pink-500/10 hover:bg-pink-500/20 rounded-full text-pink-400 transition"
             >
@@ -102,7 +141,7 @@ const Footer = () => {
               whileHover={{ scale: 1.2 }}
               className="p-2 bg-cyan-500/10 hover:bg-cyan-500/20 rounded-full text-cyan-400 transition"
             >
-              <Linkedin size={22} />
+              <Youtube size={22} />
             </motion.a>
           </div>
         </motion.div>
@@ -117,13 +156,15 @@ const Footer = () => {
       >
         <p>
           © {new Date().getFullYear()}{" "}
-          <span className="text-blue-400 font-medium">Alex CCTV Solutions</span> — All Rights Reserved.
+          <span className="text-blue-400 font-medium">AV CCTV Solutions</span> — All Rights Reserved.
         </p>
         <p className="mt-2 sm:mt-0 text-gray-400 text-xs sm:text-sm">
           Developed by{" "}
+          <a href="https://www.instagram.com/rohanpanwar_01?utm_source=qr&igsh=MWdxMGM1a2xhZ285MQ==">
           <span className="text-blue-400 font-semibold hover:underline cursor-pointer">
             Rohan Panwar
           </span>
+          </a>
         </p>
       </motion.div>
     </footer>

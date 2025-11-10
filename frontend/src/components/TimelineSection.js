@@ -31,7 +31,7 @@ const steps = [
 
 const TimelineSection = () => {
   return (
-    <section className="relative py-24 bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white overflow-hidden">
+    <section id="timeline" className="relative py-24 bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white overflow-hidden">
       {/* Subtle glow background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.15),transparent_60%)] blur-3xl"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.15),transparent_70%)] blur-3xl"></div>

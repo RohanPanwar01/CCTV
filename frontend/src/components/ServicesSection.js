@@ -43,7 +43,7 @@ const services = [
 
 const ServicesPage = () => {
   return (
-    <div className="bg-gradient-to-b from-[#0a0f1a] via-[#0f1626] to-black text-white min-h-screen py-24 px-6 sm:px-10">
+    <div id="services" className="bg-gradient-to-b from-[#0a0f1a] via-[#0f1626] to-black text-white min-h-screen py-24 px-6 sm:px-10">
       {/* ===== HEADER ===== */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -93,7 +93,7 @@ const ServicesPage = () => {
           Ready to Upgrade Your Security?
         </h2>
         <p className="text-gray-400 mb-8">
-          Contact us today for a free consultation and discover how Alex CCTV Solutions can protect your space.
+          Contact us today for a free consultation and discover how AV CCTV Solutions can protect your space.
         </p>
         <motion.a
           href="#contact"

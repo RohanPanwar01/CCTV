@@ -4,7 +4,7 @@ import { ShieldCheck, Users, Award, Wrench } from "lucide-react";
 
 const AboutPage = () => {
   return (
-    <section className="bg-gradient-to-b from-[#0a0f1a] via-[#0f1626] to-black text-gray-300 min-h-screen py-20 px-4 sm:px-6 md:px-10 overflow-x-hidden">
+    <section id="about" className="bg-gradient-to-b from-[#0a0f1a] via-[#0f1626] to-black text-gray-300 min-h-screen py-20 px-4 sm:px-6 md:px-10 overflow-x-hidden">
       {/* ===== PAGE HEADER ===== */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}

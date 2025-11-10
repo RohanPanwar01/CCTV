@@ -27,17 +27,33 @@ const ContactPage = () => {
           {
             icon: <Phone className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" />,
             title: "Phone",
-            info: "+91 98765 43210",
+            info: (
+      <div className="flex flex-col">
+        <a href="tel:+916266244907" className="hover:text-blue-400 transition">
+          +91 62662 44907
+        </a>
+        <a href="tel:+916266244907" className="hover:text-blue-400 transition">
+          +91 62662 44907
+        </a>
+      </div>
+            )
           },
           {
             icon: <Mail className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" />,
             title: "Email",
-            info: "support@alexcctv.com",
+             info: (
+      <a
+        href="mailto:support@alexcctv.com"
+        className="hover:text-blue-400 transition break-all"
+      >
+        support@alexcctv.com
+      </a>
+    ),
           },
           {
             icon: <MapPin className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" />,
             title: "Address",
-            info: "Bhopal, Madhya Pradesh, India",
+            info: "Indore, Madhya Pradesh, India",
           },
           {
             icon: <Clock className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" />,
@@ -58,7 +74,7 @@ const ContactPage = () => {
               <h3 className="text-lg sm:text-xl font-semibold text-white">
                 {item.title}
               </h3>
-              <p className="text-gray-400 text-sm sm:text-base">{item.info}</p>
+              <div className="text-gray-400 text-sm sm:text-base">{item.info}</div>
             </div>
           </motion.div>
         ))}

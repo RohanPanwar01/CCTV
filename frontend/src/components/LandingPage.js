@@ -14,7 +14,7 @@ const LandingPage = () => {
   return (
     <>
       {/* ===== HERO SECTION ===== */}
-      <div
+      <div id="/home"
         className="relative min-h-screen bg-cover bg-center flex flex-col justify-center items-center text-white overflow-hidden"
         style={{
           backgroundImage:
@@ -57,11 +57,11 @@ const LandingPage = () => {
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-extrabold mb-6 drop-shadow-lg leading-tight">
             Protect What Matters Most with{" "}
-            <span className="text-blue-400">Alex CCTV</span>
+            <span className="text-blue-400">AV CCTV</span>
           </h2>
           <p className="text-lg sm:text-xl max-w-2xl mx-auto text-gray-200 drop-shadow">
             Advanced surveillance systems for homes, offices, and businesses —
-            trusted installation and maintenance in Bhopal.
+            trusted installation and maintenance in Indore.
           </p>
 
           {/* Icons Row */}
@@ -118,8 +118,16 @@ const LandingPage = () => {
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
       >
+      <div id="services">
         <ServicesSection />
+        </div>
       </motion.section>
+
+
+      {/* <GallerySection /> */}
+      <section id="gallery">
+      <GalleryPreview />
+      </section>
 
       <motion.section
         initial={{ opacity: 0, y: 80 }}
@@ -127,7 +135,7 @@ const LandingPage = () => {
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
       >
-        <AboutSection />
+        {/* <AboutSection /> */}
       </motion.section>
 
       <motion.section
@@ -164,11 +172,6 @@ const LandingPage = () => {
       >
         <ContactSection />
       </motion.section>
-
-      {/* <GallerySection /> */}
-      <section id="gallery">
-      <GalleryPreview />
-      </section>
     </>
   );
 };
