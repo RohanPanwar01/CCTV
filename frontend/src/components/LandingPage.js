@@ -145,7 +145,6 @@ const LandingPage = () => {
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
       >
-        {/* <AutoScrollSection /> */}
       </motion.section>
 
       <motion.section
@@ -154,7 +153,6 @@ const LandingPage = () => {
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
       >
-        {/* <CctvServices /> */}
       </motion.section>
 
       <motion.section
