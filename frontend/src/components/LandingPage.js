@@ -7,7 +7,9 @@ import ContactSection from "./ContactSection";
 import AutoScrollSection from "./AutoScrollSection";
 import CctvServices from "./CctvServices";
 import TimelineSection from "./TimelineSection";
-import GallerySection from "./GallerySection";
+// import GallerySection from "./GallerySection";
+
+import GalleryPreview from "./GalleryPreview";
 const LandingPage = () => {
   return (
     <>
@@ -23,7 +25,7 @@ const LandingPage = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
 
         {/* Navbar */}
-        <header className="absolute top-0 left-0 w-full flex justify-between items-center px-6 sm:px-12 py-4 backdrop-blur-md bg-black/30 z-10">
+        {/* <header className="absolute top-0 left-0 w-full flex justify-between items-center px-6 sm:px-12 py-4 backdrop-blur-md bg-black/30 z-10">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -44,7 +46,7 @@ const LandingPage = () => {
           >
             Contact us
           </motion.button>
-        </header>
+        </header> */}
 
         {/* Hero Content */}
         <motion.div
@@ -143,7 +145,7 @@ const LandingPage = () => {
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
       >
-        <AutoScrollSection />
+        {/* <AutoScrollSection /> */}
       </motion.section>
 
       <motion.section
@@ -152,7 +154,7 @@ const LandingPage = () => {
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
       >
-        <CctvServices />
+        {/* <CctvServices /> */}
       </motion.section>
 
       <motion.section
@@ -165,7 +167,10 @@ const LandingPage = () => {
         <ContactSection />
       </motion.section>
 
-      <GallerySection />
+      {/* <GallerySection /> */}
+      <section id="gallery">
+      <GalleryPreview />
+      </section>
     </>
   );
 };

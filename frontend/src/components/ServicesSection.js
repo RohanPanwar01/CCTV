@@ -1,86 +1,111 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { ShieldCheck, Camera, Bell, Cpu, Wrench, CheckCircle } from "lucide-react";
 
 const services = [
   {
-    title: "Residential CCTV Installation",
+    icon: <Camera className="w-10 h-10 text-blue-400" />,
+    title: "CCTV Camera Installation",
     description:
-      "Secure your home with our advanced CCTV systems, ensuring peace of mind 24/7.",
-    image:
-      "https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=800&q=80",
+      "Professional setup of HD and IP cameras for homes, offices, and commercial spaces, ensuring full coverage and reliability.",
   },
   {
-    title: "Commercial Surveillance Solutions",
+    icon: <ShieldCheck className="w-10 h-10 text-green-400" />,
+    title: "Smart Security Systems",
     description:
-      "Protect your business with tailored surveillance systems for optimal security and efficiency.",
-    image:
-      "https://images.unsplash.com/photo-1597764691390-9490b93ae5b5?auto=format&fit=crop&w=800&q=80",
+      "Integrated systems including door sensors, alarms, and motion detectors that keep your property secure and connected.",
   },
   {
-    title: "Remote Monitoring Services",
+    icon: <Bell className="w-10 h-10 text-red-400" />,
+    title: "Alarm & Alert Integration",
     description:
-      "Access live footage anytime, anywhere with our cutting-edge remote monitoring technology.",
-    image:
-      "https://images.unsplash.com/photo-1579506061107-3c940d3b7a36?auto=format&fit=crop&w=800&q=80",
+      "Real-time alerts on your mobile devices, letting you monitor and respond instantly to any security event.",
   },
-   {
-    title: "Residential CCTV Installation",
+  {
+    icon: <Cpu className="w-10 h-10 text-yellow-400" />,
+    title: "AI-Based Surveillance",
     description:
-      "Secure your home with our advanced CCTV systems, ensuring peace of mind 24/7.",
-    image:
-      "https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=800&q=80",
+      "Advanced analytics powered by AI to detect unusual activities and provide intelligent monitoring capabilities.",
   },
-   {
-    title: "Residential CCTV Installation",
+  {
+    icon: <Wrench className="w-10 h-10 text-cyan-400" />,
+    title: "Maintenance & Support",
     description:
-      "Secure your home with our advanced CCTV systems, ensuring peace of mind 24/7.",
-    image:
-      "https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=800&q=80",
+      "Regular maintenance, troubleshooting, and upgrades to ensure your system runs smoothly all year round.",
   },
-   {
-    title: "Residential CCTV Installation",
+  {
+    icon: <CheckCircle className="w-10 h-10 text-purple-400" />,
+    title: "Testing & Quality Assurance",
     description:
-      "Secure your home with our advanced CCTV systems, ensuring peace of mind 24/7.",
-    image:
-      "https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=800&q=80",
+      "Every installation is thoroughly tested to meet the highest performance and safety standards.",
   },
 ];
 
-const ServicesSection = () => {
+const ServicesPage = () => {
   return (
-    <section className="bg-[#003049] text-white py-16 px-6 sm:px-10 md:px-16">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-          Protect Your Property with Precision.
-        </h2>
-        <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-          Secure your premises with expert CCTV installations from Alex CCTV
-          Solutions, ensuring unmatched precision and safety in Bhopal.
+    <div className="bg-gradient-to-b from-[#0a0f1a] via-[#0f1626] to-black text-white min-h-screen py-24 px-6 sm:px-10">
+      {/* ===== HEADER ===== */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="text-center mb-16"
+      >
+        <h1 className="text-5xl font-extrabold font-serif bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+          Our Professional Services
+        </h1>
+        <p className="text-gray-400 mt-4 text-lg max-w-2xl mx-auto">
+          From advanced surveillance systems to AI-driven monitoring solutions, we deliver comprehensive security services designed to protect what matters most.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map((service, i) => (
-          <div key={i} className="relative rounded-2xl overflow-hidden border border-blue-500 group shadow-lg">
-            <img
-              src={service.image}
-              alt={service.title}
-              className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-60 transition"></div>
-            <div className="absolute inset-0 flex flex-col justify-end p-6">
-              <h3 className="text-2xl font-serif font-semibold mb-3">
-                {service.title}
-              </h3>
-              <p className="text-gray-200 text-base mb-5">{service.description}</p>
-              <button className="bg-white text-black px-4 py-2 rounded-md font-medium hover:bg-gray-200 transition">
-                More info
-              </button>
-            </div>
-          </div>
+      {/* ===== SERVICE GRID ===== */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {services.map((service, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.05 }}
+            className="relative p-8 rounded-2xl bg-gradient-to-br from-blue-900/20 to-black/40 border border-blue-600/20 hover:border-blue-500/50 shadow-md hover:shadow-blue-500/20 transition"
+          >
+            <div className="mb-4">{service.icon}</div>
+            <h3 className="text-2xl font-semibold mb-3 text-blue-300">
+              {service.title}
+            </h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              {service.description}
+            </p>
+          </motion.div>
         ))}
       </div>
-    </section>
+
+      {/* ===== CALL TO ACTION ===== */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="mt-20 text-center"
+      >
+        <h2 className="text-3xl font-bold mb-4 text-blue-400">
+          Ready to Upgrade Your Security?
+        </h2>
+        <p className="text-gray-400 mb-8">
+          Contact us today for a free consultation and discover how Alex CCTV Solutions can protect your space.
+        </p>
+        <motion.a
+          href="#contact"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-blue-500 transition"
+        >
+          Get in Touch
+        </motion.a>
+      </motion.div>
+    </div>
   );
 };
 
-export default ServicesSection;
+export default ServicesPage;
