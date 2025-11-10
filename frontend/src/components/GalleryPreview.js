@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PlayCircle, X, Camera, ShieldCheck, Video } from "lucide-react";
 import S1 from "../image/s1.jpg";
+import { NavLink } from "react-router-dom";
 
 const previewData = [
   { youtubeId: "6FvuYclm76w", thumbnail: S1, category: "Home" },
@@ -112,10 +113,11 @@ const GalleryPreview = () => {
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => (window.location.href = "/gallery")}
           className="mt-14 bg-gradient-to-r from-blue-600 to-cyan-400 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-blue-600/50 transition font-semibold"
         >
+            <NavLink to="/gallery">
           Explore Full Gallery →
+          </NavLink>
         </motion.button>
       </div>
 
