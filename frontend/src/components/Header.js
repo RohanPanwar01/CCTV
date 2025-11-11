@@ -64,7 +64,7 @@ const Header = () => {
     { label: "About", path: "/about", type: "route" },
     { label: "Product", path: "/product", type: "route" },
     { label: "Gallery", id: "gallery", type: "scroll" },
-    { label: "Contact", id: "contact", type: "scroll" },
+    { label: "Faq", path: "/faq", type: "route" },
   ];
 
   return (
