@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ShieldCheck, Users, Award, Wrench } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const AboutPage = () => {
   return (
@@ -13,7 +14,7 @@ const AboutPage = () => {
         className="text-center mb-16 px-2"
       >
         <h1 className="text-4xl sm:text-5xl font-extrabold font-serif bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent mb-4">
-          About Alex CCTV Solutions
+          About AV CCTV Solutions
         </h1>
         <p className="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
           We’re committed to making your world safer with advanced CCTV
@@ -51,9 +52,9 @@ const AboutPage = () => {
             Who We Are
           </h2>
           <p className="text-gray-400 mb-5 leading-relaxed text-sm sm:text-base">
-            Alex CCTV Solutions is a trusted name in the security and
+            AV CCTV Solutions is a trusted name in the security and
             surveillance industry, offering professional CCTV installation,
-            AI-powered monitoring, and integrated safety solutions across Bhopal
+            AI-powered monitoring, and integrated safety solutions across Indore
             and nearby areas.
           </p>
           <p className="text-gray-400 mb-5 leading-relaxed text-sm sm:text-base">
@@ -144,7 +145,9 @@ const AboutPage = () => {
           whileTap={{ scale: 0.95 }}
           className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-blue-500 transition"
         >
+          <NavLink to="/contactus">
           Contact Us Today
+          </NavLink>
         </motion.a>
       </motion.div>
     </section>

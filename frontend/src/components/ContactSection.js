@@ -3,6 +3,37 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 const ContactPage = () => {
+  const contactInfo = [
+    {
+      icon: <Phone className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" />,
+      title: "Phone",
+      info: (
+        <div className="flex flex-col">
+          <span>+91 62662 44907</span>
+          <span>+91 62662 44907</span>
+        </div>
+      ),
+      link: "tel:+916266244907",
+    },
+    {
+      icon: <Mail className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" />,
+      title: "Email",
+      info: "av_cctv_indore@gmail.com",
+      link: "mailto:av_cctv_indore@gmail.com",
+    },
+    {
+      icon: <MapPin className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" />,
+      title: "Address",
+      info: "Indore, Madhya Pradesh, India",
+      link: "https://www.google.com/maps/place/Indore,+Madhya+Pradesh",
+    },
+    {
+      icon: <Clock className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" />,
+      title: "Working Hours",
+      info: "Mon - Sat: 9:00 AM - 8:00 PM",
+    },
+  ];
+
   return (
     <section className="bg-gradient-to-b from-[#0a0f1a] via-[#0f1626] to-black text-gray-300 py-16 sm:py-20 px-4 sm:px-8 md:px-16 overflow-x-hidden">
       {/* ===== Header Section ===== */}
@@ -23,67 +54,53 @@ const ContactPage = () => {
 
       {/* ===== Contact Info Cards ===== */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
-        {[
-          {
-            icon: <Phone className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" />,
-            title: "Phone",
-            info: (
-      <div className="flex flex-col">
-        <a href="tel:+916266244907" className="hover:text-blue-400 transition">
-          +91 62662 44907
-        </a>
-        <a href="tel:+916266244907" className="hover:text-blue-400 transition">
-          +91 62662 44907
-        </a>
-      </div>
-            )
-          },
-          {
-            icon: <Mail className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" />,
-            title: "Email",
-             info: (
-      <a
-        href="mailto:support@alexcctv.com"
-        className="hover:text-blue-400 transition break-all"
-      >
-        support@alexcctv.com
-      </a>
-    ),
-          },
-          {
-            icon: <MapPin className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" />,
-            title: "Address",
-            info: "Indore, Madhya Pradesh, India",
-          },
-          {
-            icon: <Clock className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" />,
-            title: "Working Hours",
-            info: "Mon - Sat: 9:00 AM - 8:00 PM",
-          },
-        ].map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-br from-blue-900/20 to-black/40 border border-blue-500/20 rounded-2xl p-6 text-center hover:shadow-blue-500/20 hover:scale-105 transition-all duration-300"
-          >
-            <div className="flex flex-col items-center space-y-3">
-              {item.icon}
-              <h3 className="text-lg sm:text-xl font-semibold text-white">
-                {item.title}
-              </h3>
-              <div className="text-gray-400 text-sm sm:text-base">{item.info}</div>
-            </div>
-          </motion.div>
-        ))}
+        {contactInfo.map((item, i) => {
+          const CardContent = (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="h-full bg-gradient-to-br from-blue-900/20 to-black/40 border border-blue-500/20 rounded-2xl p-6 flex flex-col justify-center text-center hover:shadow-blue-500/20 hover:scale-105 transition-all duration-300"
+            >
+              <div className="flex flex-col items-center space-y-3">
+                {item.icon}
+                <h3 className="text-lg sm:text-xl font-semibold text-white">
+                  {item.title}
+                </h3>
+                {typeof item.info === "string" ? (
+                  <p className="text-gray-400 text-sm sm:text-base">{item.info}</p>
+                ) : (
+                  <div className="text-gray-400 text-sm sm:text-base">
+                    {item.info}
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          );
+
+          // ✅ Make clickable for phone, email, and address
+          return item.link ? (
+            <a
+              key={i}
+              href={item.link}
+              target={item.link.startsWith("http") ? "_blank" : "_self"}
+              rel="noopener noreferrer"
+              className="block w-full h-full hover:no-underline"
+            >
+              {CardContent}
+            </a>
+          ) : (
+            CardContent
+          );
+        })}
       </div>
 
       {/* ===== Contact Form + Map ===== */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start max-w-6xl mx-auto w-full">
+      {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start max-w-6xl mx-auto w-full"> */}
         {/* ---- Contact Form ---- */}
-        <motion.form
+        {/* <motion.form
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
@@ -134,10 +151,10 @@ const ContactPage = () => {
               Send Message
             </motion.button>
           </div>
-        </motion.form>
+        </motion.form> */}
 
         {/* ---- Embedded Google Map ---- */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
@@ -155,7 +172,7 @@ const ContactPage = () => {
             className="w-full h-[350px] sm:h-[400px] md:h-[450px] border-0"
           ></iframe>
         </motion.div>
-      </div>
+      </div> */}
     </section>
   );
 };

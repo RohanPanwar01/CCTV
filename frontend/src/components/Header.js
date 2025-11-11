@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import Logo from "../image/logo.jpg";
+import Logo1 from "../image/Logo1.jpg";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
@@ -10,14 +10,14 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Detect scroll
+  // Detect scroll for header styling
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll within current page
+  // Scroll to section smoothly
   const handleScrollTo = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -30,18 +30,18 @@ const Header = () => {
   const handleNavClick = (link) => {
     setMenuOpen(false);
 
-    // Home handling: If on About, go to "/" then scroll
+    // Home button handling
     if (link.label === "Home") {
       if (location.pathname !== "/") {
         navigate("/");
-        setTimeout(() => handleScrollTo("hero"), 300);
+        setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 400);
       } else {
-        handleScrollTo("hero");
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
       return;
     }
 
-    // Scroll type
+    // Scroll type (for same-page sections)
     if (link.type === "scroll") {
       if (location.pathname !== "/") {
         navigate("/");
@@ -50,17 +50,19 @@ const Header = () => {
         handleScrollTo(link.id);
       }
     }
-    // Route type
+
+    // Route type (different pages)
     else if (link.type === "route") {
       navigate(link.path);
+      setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 200);
     }
   };
 
   const navLinks = [
-    { label: "Home", id: "/home", type: "scroll" },
+    { label: "Home", id: "/", type: "scroll" },
     { label: "Services", id: "services", type: "scroll" },
     { label: "About", path: "/about", type: "route" },
-    { label: "Process", id: "timeline", type: "scroll" },
+    { label: "Product", path: "/product", type: "route" },
     { label: "Gallery", id: "gallery", type: "scroll" },
     { label: "Contact", id: "contact", type: "scroll" },
   ];
@@ -74,20 +76,29 @@ const Header = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 sm:px-12 py-4">
-        
-        {/* Logo */}
+
+        {/* Logo + Name */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center space-x-2 cursor-pointer select-none"
+          className="flex items-center space-x-3 cursor-pointer select-none"
         >
-          <NavLink to="/">
+          <NavLink to="/" className="flex items-center space-x-3">
             <img
-              src={Logo}
-              alt="AV CCTV Logo"
-              className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+              src={Logo1}
+              alt="Alex CCTV Solutions"
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-blue-500 shadow-lg hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300"
             />
+           <div className="flex flex-col leading-tight">
+  <span className="text-white font-bold text-lg sm:text-xl tracking-wide hover:text-blue-400 transition">
+    AV_CCTV_INDORE
+  </span>
+  <span className="text-gray-400 text-sm sm:text-base font-medium tracking-wide">
+   CCTV Installation
+  </span>
+</div>
+
           </NavLink>
         </motion.div>
 
@@ -97,7 +108,11 @@ const Header = () => {
             <motion.button
               key={link.label}
               whileHover={{ scale: 1.05 }}
-              className="text-gray-300 hover:text-blue-400 font-medium transition"
+              className={`font-medium transition ${
+                location.pathname === link.path
+                  ? "text-blue-400"
+                  : "text-gray-300 hover:text-blue-400"
+              }`}
               onClick={() => handleNavClick(link)}
             >
               {link.label}
@@ -114,7 +129,7 @@ const Header = () => {
           </motion.button>
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Toggle */}
         <div className="md:hidden flex items-center">
           <motion.button
             whileTap={{ scale: 0.9 }}
@@ -134,7 +149,7 @@ const Header = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 50 }}
             transition={{ duration: 0.3 }}
-            className="absolute right-4 top-16 bg-black/80 backdrop-blur-xl border border-blue-500/30 shadow-lg rounded-2xl px-6 py-4 z-50 w-48"
+            className="absolute right-4 top-16 bg-black/80 backdrop-blur-xl border border-blue-500/30 shadow-lg rounded-2xl px-6 py-4 z-50 w-52"
           >
             <div className="flex flex-col text-right space-y-3">
               {navLinks.map((link) => (
@@ -142,7 +157,11 @@ const Header = () => {
                   key={link.label}
                   whileHover={{ scale: 1.05 }}
                   onClick={() => handleNavClick(link)}
-                  className="text-gray-200 text-base font-medium hover:text-blue-400 transition"
+                  className={`text-base font-medium transition ${
+                    location.pathname === link.path
+                      ? "text-blue-400"
+                      : "text-gray-200 hover:text-blue-400"
+                  }`}
                 >
                   {link.label}
                 </motion.button>

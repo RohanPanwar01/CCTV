@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
-import Logo from "../image/logo.jpg";
+import Logo1 from "../image/Logo1.jpg";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -58,11 +58,12 @@ const Footer = () => {
           transition={{ duration: 0.6 }}
         >
           <NavLink to="/">
-            <img
-              src={Logo}
-              alt="AV CCTV Logo"
-              className="w-10 h-10 sm:w-12 sm:h-12 object-contain mb-3"
-            />
+           <img
+  src={Logo1}
+  alt="Alex CCTV Solutions"
+  className="w-16 h-16 rounded-full object-cover border-2 border-blue-500 shadow-lg hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300"
+/>
+
           </NavLink>
 
           <p className="text-gray-400 text-sm leading-relaxed">
@@ -104,8 +105,9 @@ const Footer = () => {
               <Phone size={18} className="text-blue-400" /> +91 6266244907
             </li>
             </a>
+            
             <li className="flex items-center gap-2">
-              <Mail size={18} className="text-blue-400" /> alexcctvsolutions@gmail.com
+              <Mail size={18} className="text-blue-400" /> av_cctv_indore@gmail.com
             </li>
             <li className="flex items-start gap-2">
               <MapPin size={18} className="text-blue-400 mt-1" /> 
