@@ -10,7 +10,7 @@ const ContactPage = () => {
       info: (
         <div className="flex flex-col">
           <span>+91 62662 44907</span>
-          <span>+91 62662 44907</span>
+          <span>+91 91650 20711</span>
         </div>
       ),
       link: "tel:+916266244907",

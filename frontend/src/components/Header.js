@@ -60,10 +60,10 @@ const Header = () => {
 
   const navLinks = [
     { label: "Home", id: "/", type: "scroll" },
+    { label: "Product", id: "product", type: "scroll" },
     { label: "Services", id: "services", type: "scroll" },
+     { label: "Gallery", id: "gallery", type: "scroll" },
     { label: "About", path: "/about", type: "route" },
-    { label: "Product", path: "/product", type: "route" },
-    { label: "Gallery", id: "gallery", type: "scroll" },
     { label: "Faq", path: "/faq", type: "route" },
   ];
 

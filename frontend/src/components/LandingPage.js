@@ -7,6 +7,7 @@ import ContactSection from "./ContactSection";
 import AutoScrollSection from "./AutoScrollSection";
 import CctvServices from "./CctvServices";
 import TimelineSection from "./TimelineSection";
+import ProductPage from "./ProductPage";
 // import GallerySection from "./GallerySection";
 
 import GalleryPreview from "./GalleryPreview";
@@ -112,6 +113,11 @@ const LandingPage = () => {
       </div>
 
       {/* ===== PAGE SECTIONS ===== */}
+
+      <section id="product">
+      <ProductPage />
+      </section>
+
       <motion.section
         initial={{ opacity: 0, y: 80 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -138,14 +144,14 @@ const LandingPage = () => {
         {/* <AboutSection /> */}
       </motion.section>
 
-      <motion.section
+      {/* <motion.section
         initial={{ opacity: 0, y: 80 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
       >
         <TimelineSection />
-      </motion.section>
+      </motion.section> */}
 
       <motion.section
         initial={{ opacity: 0, y: 80 }}
