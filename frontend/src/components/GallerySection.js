@@ -1,30 +1,32 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { PlayCircle, ShieldCheck, Camera, Video } from "lucide-react";
+import { PlayCircle, ShieldCheck, Camera, Video, Image as ImageIcon } from "lucide-react";
 import S1 from "../image/s1.jpg";
 
 const galleryData = {
   home: [
     { type: "video", youtubeId: "6FvuYclm76w", thumbnail: S1 },
+    { type: "photo", src: S1 },
     { type: "video", youtubeId: "xY-iIf6CIe4", thumbnail: S1 },
+    { type: "photo", src: S1 },
   ],
   commercial: [
+    { type: "photo", src: S1 },
     { type: "video", youtubeId: "xY-iIf6CIe4", thumbnail: S1 },
-    { type: "video", youtubeId: "xY-iIf6CIe4", thumbnail: S1 },
+    { type: "photo", src: S1 },
   ],
   industrial: [
     { type: "video", youtubeId: "xY-iIf6CIe4", thumbnail: S1 },
+    { type: "photo", src: S1 },
+    { type: "photo", src: S1 },
     { type: "video", youtubeId: "xY-iIf6CIe4", thumbnail: S1 },
-    { type: "video", youtubeId: "xY-iIf6CIe4", thumbnail: S1 },
-     { type: "video", youtubeId: "xY-iIf6CIe4", thumbnail: S1 },
-      { type: "video", youtubeId: "xY-iIf6CIe4", thumbnail: S1 },
-       { type: "video", youtubeId: "xY-iIf6CIe4", thumbnail: S1 },
   ],
 };
 
 const GallerySection = () => {
   const [activeCategory, setActiveCategory] = useState("home");
   const [videoId, setVideoId] = useState(null);
+  const [photoSrc, setPhotoSrc] = useState(null);
 
   return (
     <section className="relative bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white py-24 overflow-hidden">
@@ -103,19 +105,28 @@ const GallerySection = () => {
               whileHover={{ scale: 1.04 }}
               className="relative overflow-hidden rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-800/70 to-gray-900/70 backdrop-blur-lg shadow-lg hover:shadow-blue-500/30 cursor-pointer group"
               onClick={() =>
-                item.type === "video" ? setVideoId(item.youtubeId) : null
+                item.type === "video"
+                  ? setVideoId(item.youtubeId)
+                  : setPhotoSrc(item.src)
               }
             >
               <img
-                src={item.thumbnail}
+                src={item.thumbnail || item.src}
                 alt="CCTV Project"
                 className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                <PlayCircle
-                  size={70}
-                  className="text-blue-400 drop-shadow-[0_0_10px_rgba(59,130,246,0.6)] animate-pulse"
-                />
+                {item.type === "video" ? (
+                  <PlayCircle
+                    size={70}
+                    className="text-blue-400 drop-shadow-[0_0_10px_rgba(59,130,246,0.6)] animate-pulse"
+                  />
+                ) : (
+                  <ImageIcon
+                    size={60}
+                    className="text-cyan-400 drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]"
+                  />
+                )}
               </div>
             </motion.div>
           ))}
@@ -151,6 +162,41 @@ const GallerySection = () => {
               <motion.button
                 whileHover={{ scale: 1.2 }}
                 onClick={() => setVideoId(null)}
+                className="absolute top-4 right-5 text-white bg-red-500/70 hover:bg-red-600 rounded-full p-2 shadow-lg"
+              >
+                ✕
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Photo Popup */}
+      <AnimatePresence>
+        {photoSrc && (
+          <motion.div
+            className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setPhotoSrc(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 120 }}
+              className="relative w-full max-w-5xl bg-black rounded-2xl overflow-hidden border border-blue-500/40 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={photoSrc}
+                alt="Project"
+                className="w-full h-auto object-contain max-h-[90vh]"
+              />
+              <motion.button
+                whileHover={{ scale: 1.2 }}
+                onClick={() => setPhotoSrc(null)}
                 className="absolute top-4 right-5 text-white bg-red-500/70 hover:bg-red-600 rounded-full p-2 shadow-lg"
               >
                 ✕

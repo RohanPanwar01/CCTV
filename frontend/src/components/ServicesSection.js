@@ -1,43 +1,43 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ShieldCheck, Camera, Bell, Cpu, Wrench, CheckCircle } from "lucide-react";
+import { Lock, Camera, Bell, Clock, Fingerprint , Shield} from "lucide-react";
 
 const services = [
   {
     icon: <Camera className="w-10 h-10 text-blue-400" />,
     title: "CCTV Camera Installation",
     description:
-      "Professional setup of HD and IP cameras for homes, offices, and commercial spaces, ensuring full coverage and reliability.",
+      "WiFi, PTZ, HD, and IP cameras for comprehensive surveillance coverage",
   },
   {
-    icon: <ShieldCheck className="w-10 h-10 text-green-400" />,
-    title: "Smart Security Systems",
+    icon: <Lock className="w-10 h-10 text-green-400" />,
+    title: "Smart Door Locks",
     description:
-      "Integrated systems including door sensors, alarms, and motion detectors that keep your property secure and connected.",
+      "Door locks with integrated cameras and remote access control",
   },
   {
-    icon: <Bell className="w-10 h-10 text-red-400" />,
-    title: "Alarm & Alert Integration",
+    icon: <Fingerprint className="w-10 h-10 text-red-400" />,
+    title: "Biometric Access Control",
     description:
-      "Real-time alerts on your mobile devices, letting you monitor and respond instantly to any security event.",
+      "Fingerprint and face recognition systems for secure entry management",
   },
   {
-    icon: <Cpu className="w-10 h-10 text-yellow-400" />,
-    title: "AI-Based Surveillance",
+    icon: <Clock className="w-10 h-10 text-yellow-400" />,
+    title: "Attendance Systems",
     description:
-      "Advanced analytics powered by AI to detect unusual activities and provide intelligent monitoring capabilities.",
+      "Punching machines and time tracking for employee management",
   },
   {
-    icon: <Wrench className="w-10 h-10 text-cyan-400" />,
-    title: "Maintenance & Support",
+    icon: <Bell className="w-10 h-10 text-cyan-400" />,
+    title: "Human Detection Systems",
     description:
-      "Regular maintenance, troubleshooting, and upgrades to ensure your system runs smoothly all year round.",
+      "Advanced hooter systems with Al-powered human detection alerts",
   },
   {
-    icon: <CheckCircle className="w-10 h-10 text-purple-400" />,
-    title: "Testing & Quality Assurance",
+    icon: <Shield className="w-10 h-10 text-purple-400" />,
+    title: "Complete Security Solutions",
     description:
-      "Every installation is thoroughly tested to meet the highest performance and safety standards.",
+      "Customized security packages for hotels, offices, and residential properties",
   },
 ];
 

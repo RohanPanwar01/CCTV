@@ -40,10 +40,14 @@ const Footer = () => {
 
   const navLinks = [
     { label: "Home", id: "/", type: "scroll" },
+        { label: "Product", id: "product", type: "scroll" },
+
     { label: "Services", id: "services", type: "scroll" },
+        { label: "Gallery", id: "gallery", type: "scroll" },
+
     { label: "About", path: "/about", type: "route" },
-    { label: "Process", id: "timeline", type: "scroll" },
-    { label: "Gallery", id: "gallery", type: "scroll" },
+        { label: "Faq", path: "/faq", type: "route" },
+
     { label: "Contact", id: "contact", type: "scroll" },
   ];
 
@@ -124,13 +128,13 @@ const Footer = () => {
         >
           <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
           <div className="flex gap-5">
-            <motion.a
+            {/* <motion.a
               href="#"
               whileHover={{ scale: 1.2 }}
               className="p-2 bg-blue-500/10 hover:bg-blue-500/20 rounded-full text-blue-400 transition"
             >
               <Facebook size={22} />
-            </motion.a>
+            </motion.a> */}
             <motion.a
               href="https://www.instagram.com/av_cctv_indore?igsh=MXNweHh0MjJqdzZ4aw=="
               whileHover={{ scale: 1.2 }}
@@ -139,7 +143,7 @@ const Footer = () => {
               <Instagram size={22} />
             </motion.a>
             <motion.a
-              href="#"
+              href="https://youtube.com/@avcctvindore?si=fr_JdqEx7cBiE3k1" target="blank"
               whileHover={{ scale: 1.2 }}
               className="p-2 bg-cyan-500/10 hover:bg-cyan-500/20 rounded-full text-cyan-400 transition"
             >
