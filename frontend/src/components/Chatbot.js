@@ -4,7 +4,7 @@ const TawkTo = () => {
   useEffect(() => {
     var s1 = document.createElement("script");
     s1.async = true;
-    s1.src = "https://embed.tawk.to/691357bc15a4d61959d4a4a1/1j9potf8l";
+    s1.src = "https://embed.tawk.to/691454dade65351959f239c6/1j9rmmttk";
     s1.charset = "UTF-8";
     s1.setAttribute("crossorigin", "*");
     document.body.appendChild(s1);
