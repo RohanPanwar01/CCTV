@@ -86,13 +86,14 @@ const ProductPage = () => {
             prevEl: ".swiper-button-prev",
           }}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
-          spaceBetween={30}
+          spaceBetween={25}
           centeredSlides={false}
           breakpoints={{
             320: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
+            640: { slidesPerView: 1.5 },
+            768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
-            1280: { slidesPerView: 4 },
+            1440: { slidesPerView: 4 },
           }}
           className="pb-10"
         >
@@ -103,7 +104,7 @@ const ProductPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-blue-900/20 to-black/40 border border-blue-500/20 rounded-2xl shadow-lg hover:shadow-blue-500/20 hover:scale-[1.03] transition-all duration-300 p-4 sm:p-5 flex flex-col justify-between w-full max-w-[280px] h-[420px]"
+                className="bg-gradient-to-br from-blue-900/20 to-black/40 border border-blue-500/20 rounded-2xl shadow-lg hover:shadow-blue-500/20 hover:scale-[1.03] transition-all duration-300 p-4 sm:p-5 flex flex-col justify-between w-[90%] sm:w-[85%] md:w-[300px] h-[400px] mx-auto"
               >
                 <div className="overflow-hidden rounded-xl mb-4 aspect-[4/3] flex-shrink-0">
                   <img
@@ -117,7 +118,7 @@ const ProductPage = () => {
                   <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">
                     {product.name}
                   </h3>
-                  <p className="text-gray-400 text-sm sm:text-base flex-grow">
+                  <p className="text-gray-400 text-xs sm:text-sm md:text-base flex-grow leading-relaxed">
                     {product.description}
                   </p>
                 </div>
@@ -136,6 +137,23 @@ const ProductPage = () => {
         <div className="swiper-button-prev !text-blue-400 !top-1/2 !left-0 !transform -translate-y-1/2 after:!text-3xl hover:scale-110 transition-all duration-300"></div>
         <div className="swiper-button-next !text-blue-400 !top-1/2 !right-0 !transform -translate-y-1/2 after:!text-3xl hover:scale-110 transition-all duration-300"></div>
       </div>
+
+      {/* ===== Custom Mobile CSS ===== */}
+      <style>{`
+        @media (max-width: 640px) {
+          .swiper-button-prev,
+          .swiper-button-next {
+            font-size: 20px !important;
+            top: 60% !important;
+          }
+          .swiper-button-prev {
+            left: 5px !important;
+          }
+          .swiper-button-next {
+            right: 5px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };
