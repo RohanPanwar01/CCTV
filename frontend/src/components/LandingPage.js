@@ -10,10 +10,59 @@ import TimelineSection from "./TimelineSection";
 import ProductPage from "./ProductPage";
 // import GallerySection from "./GallerySection";
 
+import { Helmet } from "react-helmet-async";
+
 import GalleryPreview from "./GalleryPreview";
+
+
+
 const LandingPage = () => {
   return (
     <>
+
+    <Helmet>
+  <title>AV CCTV | Best CCTV Camera Installation in Indore</title>
+  <meta
+    name="description"
+    content="AV CCTV provides expert CCTV camera installation in Indore. From home security to office surveillance — trusted CP Plus, Hikvision & Dahua systems with AI monitoring."
+  />
+  <meta
+    name="keywords"
+    content="CCTV installation Indore, AV CCTV, security camera installation, Hikvision Indore, CP Plus cameras, Dahua CCTV, AI surveillance, home security systems, office monitoring"
+  />
+  <meta name="author" content="AV CCTV Solutions" />
+  <meta property="og:title" content="AV CCTV | Best CCTV Installation in Indore" />
+  <meta
+    property="og:description"
+    content="Professional CCTV installation & maintenance in Indore — Hikvision, CP Plus & Dahua systems with smart security."
+  />
+  <meta property="og:image" content="https://cctv-pgug.onrender.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cctv-pgug.onrender.com/" />
+  <link rel="canonical" href="https://cctv-pgug.onrender.com/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script type="application/ld+json">
+    {`
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "AV CCTV Solutions",
+      "image": "https://cctv-pgug.onrender.com/",
+      "description": "Professional CCTV installation and surveillance services in Indore for homes, offices, and businesses.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Indore",
+        "addressRegion": "MP",
+        "postalCode": "452001",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-6266244907",
+      "url": "https://cctv-pgug.onrender.com/"
+    }
+    `}
+  </script>
+</Helmet>
       {/* ===== HERO SECTION ===== */}
       <div id="/home"
         className="relative min-h-screen bg-cover bg-center flex flex-col justify-center items-center text-white overflow-hidden"

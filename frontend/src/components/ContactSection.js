@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram ,Clock } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const ContactPage = () => {
   const contactInfo = [
@@ -16,10 +17,10 @@ const ContactPage = () => {
       link: "tel:+916266244907",
     },
     {
-      icon: <Mail className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" />,
-      title: "Email",
-      info: "av_cctv_indore@gmail.com",
-      link: "mailto:av_cctv_indore@gmail.com",
+      icon: <Instagram className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" />,
+      title: "Instagram",
+      info: "av_cctv_indore",
+      link: "https://www.instagram.com/av_cctv_indore?igsh=MXNweHh0MjJqdzZ4aw==",
     },
     {
       icon: <MapPin className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" />,
@@ -35,6 +36,28 @@ const ContactPage = () => {
   ];
 
   return (
+    <>
+    <Helmet>
+  <title>Contact Us | AV CCTV Solutions Indore</title>
+  <meta
+    name="description"
+    content="Contact AV CCTV Solutions for CCTV camera installation, service, or support in Indore. Get free quotes for home and business security setups."
+  />
+  <meta
+    name="keywords"
+    content="contact AV CCTV, CCTV installer Indore, security support, CCTV service Indore, free quote CCTV"
+  />
+  <meta property="og:title" content="Contact AV CCTV" />
+  <meta
+    property="og:description"
+    content="Reach out to AV CCTV for professional CCTV installation and support in Indore."
+  />
+  <meta property="og:image" content="https://cctv-pgug.onrender.com/" />
+  <meta property="og:url" content="https://cctv-pgug.onrender.com/" />
+  <link rel="canonical" href="https://cctv-pgug.onrender.com/" />
+</Helmet>
+
+
     <section className="bg-gradient-to-b from-[#0a0f1a] via-[#0f1626] to-black text-gray-300 py-16 sm:py-20 px-4 sm:px-8 md:px-16 overflow-x-hidden">
       {/* ===== Header Section ===== */}
       <motion.div
@@ -174,6 +197,7 @@ const ContactPage = () => {
         </motion.div>
       </div> */}
     </section>
+    </>
   );
 };
 

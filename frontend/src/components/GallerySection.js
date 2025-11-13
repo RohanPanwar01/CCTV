@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PlayCircle, ShieldCheck, Camera, Video, Image as ImageIcon } from "lucide-react";
 import S1 from "../image/s1.jpg";
-
+import { Helmet } from "react-helmet-async";
 const galleryData = {
   home: [
     { type: "video", youtubeId: "6FvuYclm76w", thumbnail: S1 },
@@ -29,6 +29,28 @@ const GallerySection = () => {
   const [photoSrc, setPhotoSrc] = useState(null);
 
   return (
+    <>
+    <Helmet>
+  <title>Gallery | AV CCTV Installations & Projects</title>
+  <meta
+    name="description"
+    content="See real CCTV installation projects by AV CCTV in Indore — residential, commercial, and industrial setups with advanced camera systems."
+  />
+  <meta
+    name="keywords"
+    content="CCTV gallery Indore, AV CCTV projects, security camera installation images, CP Plus installation, Hikvision Indore work"
+  />
+  <meta property="og:title" content="AV CCTV Work Gallery" />
+  <meta
+    property="og:description"
+    content="Explore AV CCTV’s real projects and installations across Indore for homes, offices, and industries."
+  />
+  <meta property="og:image" content="https://cctv-pgug.onrender.com/" />
+  <meta property="og:url" content="https://cctv-pgug.onrender.com/" />
+  <link rel="canonical" href="https://cctv-pgug.onrender.com/" />
+</Helmet>
+
+
     <section className="relative bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white py-24 overflow-hidden">
       {/* Decorative Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.15),transparent_60%)] blur-3xl" />
@@ -206,6 +228,7 @@ const GallerySection = () => {
         )}
       </AnimatePresence>
     </section>
+    </>
   );
 };
 

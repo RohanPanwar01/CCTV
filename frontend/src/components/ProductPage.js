@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import P1 from "../image/p1.jpg";
 import P2 from "../image/p2.jpeg";
+import { Helmet } from "react-helmet-async";
 
 const products = [
   {
@@ -60,6 +61,29 @@ const products = [
 
 const ProductPage = () => {
   return (
+    <>
+
+    <Helmet>
+  <title>Our Products | AV CCTV Cameras & Accessories</title>
+  <meta
+    name="description"
+    content="Explore AV CCTV’s range of high-quality security products — Hikvision, CP Plus, Dahua, NVR systems, and CCTV cables for reliable surveillance."
+  />
+  <meta
+    name="keywords"
+    content="CCTV cameras Indore, Hikvision Dome Camera, CP Plus Bullet Camera, Dahua NVR, CCTV accessories, CCTV cables, security systems Indore"
+  />
+  <meta property="og:title" content="AV CCTV Products" />
+  <meta
+    property="og:description"
+    content="Shop the best CCTV cameras, NVRs, and accessories in Indore — Hikvision, CP Plus, Dahua, and more."
+  />
+  <meta property="og:image" content="https://cctv-pgug.onrender.com/" />
+  <meta property="og:url" content="https://cctv-pgug.onrender.com/" />
+  <link rel="canonical" href="https://cctv-pgug.onrender.com/" />
+</Helmet>
+
+
     <section className="bg-gradient-to-b from-[#0a0f1a] via-[#0f1626] to-black text-gray-300 py-16 sm:py-20 px-4 sm:px-8 md:px-16 overflow-hidden relative">
       {/* ===== Header ===== */}
       <motion.div
@@ -155,6 +179,7 @@ const ProductPage = () => {
         }
       `}</style>
     </section>
+    </>
   );
 };
 

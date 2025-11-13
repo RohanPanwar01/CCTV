@@ -2,9 +2,32 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ShieldCheck, Users, Award, Wrench } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const AboutPage = () => {
   return (
+    <>
+    <Helmet>
+  <title>About AV CCTV | Trusted CCTV Installation Company in Indore</title>
+  <meta
+    name="description"
+    content="Learn more about AV CCTV — a trusted CCTV installation company in Indore offering reliable surveillance solutions and customer-first support."
+  />
+  <meta
+    name="keywords"
+    content="about AV CCTV, CCTV company Indore, trusted CCTV installer, best CCTV provider Indore"
+  />
+  <meta property="og:title" content="About AV CCTV" />
+  <meta
+    property="og:description"
+    content="Reliable and experienced CCTV installation experts serving Indore and nearby areas."
+  />
+  <meta property="og:image" content="https://cctv-pgug.onrender.com/" />
+  <meta property="og:url" content="https://cctv-pgug.onrender.com/" />
+  <link rel="canonical" href="https://cctv-pgug.onrender.com/" />
+</Helmet>
+
+
     <section id="about" className="bg-gradient-to-b from-[#0a0f1a] via-[#0f1626] to-black text-gray-300 min-h-screen py-20 px-4 sm:px-6 md:px-10 overflow-x-hidden">
       {/* ===== PAGE HEADER ===== */}
       <motion.div
@@ -151,6 +174,7 @@ const AboutPage = () => {
         </motion.a>
       </motion.div>
     </section>
+    </>
   );
 };
 

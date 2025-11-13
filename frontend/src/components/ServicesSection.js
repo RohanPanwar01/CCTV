@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Lock, Camera, Bell, Clock, Fingerprint , Shield} from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const services = [
   {
@@ -43,6 +44,28 @@ const services = [
 
 const ServicesPage = () => {
   return (
+    <>
+    <Helmet>
+  <title>Our Services | CCTV Installation, Maintenance & Support</title>
+  <meta
+    name="description"
+    content="AV CCTV provides CCTV camera installation, maintenance, repair, and smart security solutions in Indore. Secure your home or business today."
+  />
+  <meta
+    name="keywords"
+    content="CCTV services Indore, camera installation, security system maintenance, home surveillance setup, office CCTV, AI camera setup"
+  />
+  <meta property="og:title" content="AV CCTV Services" />
+  <meta
+    property="og:description"
+    content="Professional CCTV installation, repair, and security services in Indore."
+  />
+  <meta property="og:image" content="https://cctv-pgug.onrender.com/" />
+  <meta property="og:url" content="https://cctv-pgug.onrender.com/" />
+  <link rel="canonical" href="https://cctv-pgug.onrender.com/" />
+</Helmet>
+
+
     <div id="services" className="bg-gradient-to-b from-[#0a0f1a] via-[#0f1626] to-black text-white min-h-screen py-24 px-6 sm:px-10">
       {/* ===== HEADER ===== */}
       <motion.div
@@ -105,6 +128,7 @@ const ServicesPage = () => {
         </motion.a>
       </motion.div> */}
     </div>
+    </>
   );
 };
 
