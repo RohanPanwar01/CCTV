@@ -13,6 +13,7 @@ import ProductPage from "./ProductPage";
 import { Helmet } from "react-helmet-async";
 
 import GalleryPreview from "./GalleryPreview";
+import ClientReviews from "./ClientReviews";
 
 
 
@@ -183,6 +184,16 @@ const LandingPage = () => {
       <section id="gallery">
       <GalleryPreview />
       </section>
+
+
+       <motion.section
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+      >
+        <ClientReviews />
+      </motion.section>
 
       <motion.section
         initial={{ opacity: 0, y: 80 }}

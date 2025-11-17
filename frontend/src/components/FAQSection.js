@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import {Helmet} from "react-helmet-async";
 
 const faqs = [
   {
@@ -38,6 +39,22 @@ const FAQSection = () => {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>FAQ – CCTV Installation & Security Camera Services in Indore | AV CCTV</title>
+<meta name="description" content="Find answers to the most common questions about CCTV installation, remote monitoring, product warranty, camera types, and custom security solutions in Indore. AV CCTV provides expert installation and top-quality surveillance systems." />
+<meta name="keywords" content="CCTV FAQ, CCTV Installation FAQ, security camera FAQ, CCTV remote viewing, CCTV warranty, CCTV installation Indore, security camera Indore, CP Plus camera, Hikvision camera, Dahua CCTV, CCTV service support" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="AV CCTV" />
+<meta property="og:title" content="FAQ – CCTV Installation & Security Camera Services in Indore | AV CCTV" />
+<meta property="og:description" content="Your common CCTV questions answered — installation, remote access, warranty, camera types & more. Contact AV CCTV for expert surveillance solutions in Indore." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cctv-pgug.onrender.com/" />
+<meta property="og:image" content="https://cctv-pgug.onrender.com/"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="canonical" href="https://cctv-pgug.onrender.com/" />
+
+    </Helmet>
     <section className="bg-gradient-to-b from-[#0a0f1a] via-[#0f1626] to-black text-gray-300 py-16 sm:py-20 px-4 sm:px-8 md:px-16 overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -94,6 +111,7 @@ const FAQSection = () => {
         ))}
       </div>
     </section>
+    </>
   );
 };
 
